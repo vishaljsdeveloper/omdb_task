@@ -16,7 +16,7 @@ const Content = () => {
 
         axios({
             method: 'GET',
-            url: `http://www.omdbapi.com/?t=${serachTerm}&&apiKey=${apiKey}`
+            url: `https://www.omdbapi.com/?t=${serachTerm}&&apiKey=${apiKey}`
         }).then((response) => {
             // console.log(response.data)
             setData(response.data)
