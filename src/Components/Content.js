@@ -40,29 +40,33 @@ const Content = () => {
                     onClick={onSearchHandler}
                 >Search</button>
             </div>
-            { data.Title?
-            <div className='w-full mt-20 flex flex-wrap items-center justify-center'>
-                <div onClick={() => setPlot(!plot)}
-                className='w-[30%] h-[350px] '
-                >
-                    <img src={data.Poster} alt="movie name" style={{width:"100%", height:"350px"}}
-                    className='border border-white rounded-md'/>
-                </div>
-                <div onClick={() => setPlot(!plot)}
-                 className='text-white ml-4 w-[35%] h-[350px] overflow-auto bg-slate-800 p-5'>
-                    <h1 className=' font-bold text-2xl'>Title :- {data.Title}</h1>
-                    <p>IMDB Rating :- {data.imdbRating}</p>
-                    <p>Release date :- {data.Released} </p>
-                    <p>Genre :- {data.Genre}</p>
-                    <p>Director :- {data.Director}</p>
-                    <p>Actors :- {data.Actors}</p>
-                    {
-                        plot?<p>Plot:- {data.Plot}</p>:""
-                    }
+            {data.Title ?
+                <div className='w-full mt-20 flex flex-wrap items-center justify-center'>
+                    <div onClick={() => setPlot(!plot)}
+                        className='w-[30%] h-[350px] '
+                    >
+                        <img src={data.Poster} alt="movie name" style={{ width: "100%", height: "350px" }}
+                            className='border border-white rounded-md' />
+                    </div>
+                    <div onClick={() => setPlot(!plot)}
+                        className='text-white ml-4 w-[35%] h-[350px] overflow-auto bg-slate-800 p-5'>
+                        <h1 className=' font-bold text-2xl'>Title :- {data.Title}</h1>
+                        <p>IMDB Rating :- {data.imdbRating}</p>
+                        <p>Release date :- {data.Released} </p>
+                        <p>Genre :- {data.Genre}</p>
+                        <p>Director :- {data.Director}</p>
+                        <p>Actors :- {data.Actors}</p>
+                        {
+                            plot ? <p>Plot:- {data.Plot}</p> : ""
+                        }
 
-                </div>
-            </div>:""
-}
+                    </div>
+                </div> : data.Response == 'False' ? <div className='text-white text-center font-bold mt-10'>
+                    No Movie Found . Please Search another movie
+                </div> :  <div className='text-white text-center font-bold mt-10'>
+                    Search the movie that you Love like Harry Potter
+                </div> 
+            }
         </div>
     )
 }
